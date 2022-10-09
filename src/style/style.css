@@ -23,7 +23,7 @@
   */
  
  #sidebar {
-   background-color: #E57373;
+   background-color: #2196F3;
    padding: 15px;
  }
  
@@ -51,4 +51,10 @@
  .author {
     font-size:.8rem;
     margin-left: 1rem;
+ }
+
+ .floated-btn {
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
  }
