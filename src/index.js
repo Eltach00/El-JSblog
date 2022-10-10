@@ -11,8 +11,7 @@ const submitBtn = form.querySelector('#submit')
 const logBtn = document.getElementById('logBtn')
 
 logBtn.addEventListener('click', () =>{ new Modal({
-    title: 'Hello there!',
-    content: 'Please enter your login'
+    title: 'Enter your email and password to log in'
     }).open() 
     })
 

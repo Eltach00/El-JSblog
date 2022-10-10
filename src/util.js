@@ -19,15 +19,26 @@ export class Modal {
         <div class="modal-overlay" data-close='true'>
         <div class="modal-window">
           <div class="modal-header">
-            <span class="modal-title">${this.title || 'No title'}</span>
+            <span class="mui--text-headline">${this.title || 'No title'}</span>
             <span class="modal-close" data-close="true">&times;</span>
           </div>
-          <div class="modal-body">
-            ${this.content || 'No context'}
+          <div class="mui--text-headline">
+            <form class="mui-form" id="form">
+            <div class="mui-textfield mui-textfield--float-label">
+                <input type="email" id="email" required>
+                <label for="email">Email</label>
+            </div>
+            <div class="mui-textfield mui-textfield--float-label">
+            <input type="password" id="pass" required>
+            <label for="pass">Password</label>
+        </div>
+        </form>
           </div>
           <div class="modal-footer">
+          <button type="submit" class="mui-btn mui-btn--raised mui-btn--primary" id="submit-auth">Submit</button>
           <button data-close='true' class="mui-btn mui-btn--raised mui-btn--danger">Cancel</button>
-          </div></div></div></div>`;
+          </div></div></div></div>
+          `;
           
      this.element = vmodal.firstElementChild;
     }
