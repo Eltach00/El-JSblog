@@ -4,11 +4,6 @@ import './style/modal.css'
 import { isValid, Modal } from './util'
 
 
-const modalWindow = new Modal({
-    title: 'Hello there!',
-    content: 'Please enter your login'
-    })
-
 window.addEventListener('load', Question.renderQuestions())
 const form = document.getElementById('form')
 const input = form.querySelector('#question-input')
@@ -20,7 +15,9 @@ logBtn.addEventListener('click', () =>{ new Modal({
     content: 'Please enter your login'
     }).open() 
     })
+
 form.addEventListener('submit', handleInput)
+
 input.addEventListener('input', () => {
     submitBtn.disabled = !isValid(input.value)
 })
