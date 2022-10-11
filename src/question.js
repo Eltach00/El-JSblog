@@ -18,11 +18,35 @@ export class Question {
     static renderQuestions() {
         const question = getQuestionsFromLocal()
 
-        const html = question.length ? question.map(getTemplate).join('') : `<div class="mui--text-headline">No questions yet</div>`
+        const html = question.length ? question.map(getTemplate).join('') : `<div class="mui--text-headline">No posts yet</div>`
 
         const list = document.getElementById('list')
 
         list.innerHTML = html
+    }
+
+    static fetchT(token) {
+        if (!token) {
+            return Promise.resolve('<h3 class="error">Wrong email or password!</h3>')
+        }
+        return fetch(`https://js-blog-el-default-rtdb.europe-west1.firebasedatabase.app/question.json?auth=${token}`)
+        .then(response => response.json())
+        .then( response => {
+            if (response && response.error) { 
+                return `<h1 class="error">${response.error}</h1>`
+            }
+            return response ? Object.keys(response).map( key => {
+               return { 
+                ...response[key],
+                id: key
+            } 
+            }) : []
+        })
+    }
+
+
+    static makeList(questions) {
+        return questions.length ? `<ol class='love'>${questions.map( q => `<li>${q.text}</li>`).join('')}</ol>` : `<h1>Вопросов нет</h1>`
     }
 }
 
